@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizCraft — Create, Share & Play Quizzes</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo" onclick="showView('home')">🧠 QuizCraft</div>
+      <nav>
+        <button class="nav-btn active" data-view="home">Home</button>
+        <button class="nav-btn" data-view="create">Create Quiz</button>
+        <button class="nav-btn" data-view="join">Join Quiz</button>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- HOME VIEW -->
+      <div id="view-home" class="view active">
+        <div class="hero">
+          <h1>Create, Share & Play Quizzes</h1>
+          <p>Build custom quizzes in seconds, share them with a unique code, and challenge your friends.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showView('create')">Create a Quiz</button>
+            <button class="btn btn-secondary" onclick="showView('join')">Join a Quiz</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>📋 Recent Quizzes</h2>
+          <div id="quiz-list" class="quiz-grid">
+            <p class="muted">Loading quizzes...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATE VIEW -->
+      <div id="view-create" class="view">
+        <h2>✏️ Create a New Quiz</h2>
+        <div class="form-card">
+          <div class="form-group">
+            <label for="quiz-title">Quiz Title</label>
+            <input type="text" id="quiz-title" placeholder="e.g. JavaScript Fundamentals" maxlength="200" />
+          </div>
+          <div class="form-group">
+            <label for="quiz-desc">Description (optional)</label>
+            <input type="text" id="quiz-desc" placeholder="A short description of your quiz" maxlength="500" />
+          </div>
+          <div class="form-group">
+            <label for="quiz-timer">Time per question (seconds, optional)</label>
+            <input type="number" id="quiz-timer" placeholder="e.g. 30" min="5" max="300" />
+          </div>
+
+          <div id="questions-container">
+            <!-- Questions will be added here -->
+          </div>
+
+          <button class="btn btn-secondary" onclick="addQuestion()">+ Add Question</button>
+          <button class="btn btn-primary" onclick="submitQuiz()" id="create-btn">Create Quiz</button>
+        </div>
+      </div>
+
+      <!-- JOIN VIEW -->
+      <div id="view-join" class="view">
+        <h2>🎮 Join a Quiz</h2>
+        <div class="form-card join-card">
+          <div class="form-group">
+            <label for="join-code">Enter Quiz Code</label>
+            <input type="text" id="join-code" placeholder="e.g. js-fund-a1b2" />
+          </div>
+          <button class="btn btn-primary" onclick="joinQuiz()">Join</button>
+        </div>
+      </div>
+
+      <!-- PLAY VIEW -->
+      <div id="view-play" class="view">
+        <div id="play-container"></div>
+      </div>
+
+      <!-- RESULT VIEW -->
+      <div id="view-result" class="view">
+        <div id="result-container"></div>
+      </div>
+
+      <!-- LEADERBOARD VIEW -->
+      <div id="view-leaderboard" class="view">
+        <div id="leaderboard-container"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
