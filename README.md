@@ -43,7 +43,7 @@ A full-stack quiz platform where users can create custom quizzes, share them via
 
 ### Prerequisites
 
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or higher
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
 
 ### Installation
 
